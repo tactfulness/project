@@ -146,7 +146,7 @@
 						            <li class="list-divider"></li>
 						             <li>
 						                <a href="view-student-list.php">
-						                    <i class="glyphicon glyphicon-calendar"></i>
+						                    <i class="fa fa-envelope-square"></i>
 						                    <span class="menu-title">Student List</span>
 						                    <i class="arrow"></i>
 						                </a>

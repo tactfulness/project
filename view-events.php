@@ -80,9 +80,6 @@ include'base_db_cofig.php';
 
 
 </head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 <body>
     <div id="container" class="effect aside-float aside-bright mainnav-lg">
         
@@ -317,8 +314,7 @@ include'base_db_cofig.php';
 
 
     </div>
-    <!--===================================================-->
-    <!-- END OF CONTAINER -->
+     <!-- END OF CONTAINER -->
 
 
     

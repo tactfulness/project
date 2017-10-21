@@ -2,6 +2,10 @@
 <?php
 include 'base_db_cofig.php';
 
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
+
 ?>
 
 <html lang="en">
@@ -202,6 +206,16 @@ include 'base_db_cofig.php';
                     ?>
               <div id="chart_div"></div>
 
+            <form method="post" action="">
+            <button type="submit" class="btn btn-success btn-rounded">Success</button>
+            </form>
+            
+            <form method="post" action="">
+            <button type="submit" class="btn btn-success btn-rounded">Success</button>
+            </form>
+                        <form method="post" action="">
+            <button type="submit" class="btn btn-success btn-rounded">Success</button>
+            </form>
 					
 					
 					

@@ -1,10 +1,16 @@
 <?php
-
 include 'base_db_cofig.php';
+//require '../phpmailer/PHPMailerAutoload.php';
+include '../phpmailer/PHPMailerAutoload.php';
+/*
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}*/
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head><link href="img/favicon.ico" rel="icon" type="image/icon" />
     <meta charset="utf-8">
@@ -70,23 +76,51 @@ include 'base_db_cofig.php';
 		    <div class="cls-content-sm panel">
 		        <div class="panel-body">
 		        <?php
-		        	$email = stripslashes($_POST['email']); 
-		        	echo $email;
-					//$email = mysqli_real_escape_string($con,$email); 
-/*
-					$query="SELECT `fname`,`email`, `phone`, `password` FROM `users` WHERE `email`='$email2'";
-					$result = mysqli_query($con,$query)or die('fetch error');
-					$rows = mysqli_num_rows($result);
-					if($rwos==1){
-						while($row = mysqli_fetch_array($result))
-					    {
-					    	echo '<script>alert("success");</script>';
-					    	echo "correct email",$row['email'];
-					    }
-					}*/
+		        	$em=$_POST['newmsg'];
+		        	echo $em;
+		        	$query="select `rollno`, `fname`, `email`, `password` from users where email='$em'";
+		        	$result=mysqli_query($con,$query) or die(mysql_error());
+					if($result){
+					while($rows = mysqli_fetch_array($result)){
+						//$nm=rows['fname'];
+						$eml=$rows['email'];
+						$ps=$rows['password'];
+						//echo $ps;
+						//echo '<script>alert("success");</script>';
+					}
+					//mail code here
 				
-		        
-		        ?>
+					$email = "venkatsubramanian707@gmail.com";                    
+                    $password = "Priyavenkat@#$";
+					$to_id = $_POST['newmsg'];
+				 	$message=$nm;
+                    $subject = $ps;
+                    $mail = new PHPMailer;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Port = 587;
+                    $mail->SMTPSecure = 'tls';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = $email;
+                    $mail->Password = $password;
+                    $mail->setFrom('from@example.com', 'password mail');
+                    $mail->addReplyTo('dontreply@gmail.com', 'auto generated mail');
+                    $mail->addAddress($to_id);
+                    $mail->Subject = $subject;
+                    $mail->msgHTML($message);
+                    if (!$mail->send()) {
+                       $error = "Mailer Error: " . $mail->ErrorInfo;
+                        ?><script>alert('<?php echo $error ?>');</script><?php
+                    } 
+                    else {
+                       echo '<script>alert("Your Password has sent to your mail!");</script>';
+					}
+
+				}
+
+					//mail code end
+			}
+	      ?>
 		            <h1 class="h3">Forgot password</h1>
 		            <p class="pad-btm">Enter your email address to recover your password. </p>
 		            <form action="" id="myform" name="myform" method="post">
@@ -123,3 +157,38 @@ include 'base_db_cofig.php';
 
 </body>
 </html>
+
+<?php
+
+/*
+$email = "venkatsubramanian707@gmail.com";                    
+                    $password = "Priyavenkat@#$";
+				 $to_id = $_POST['newmsg'];
+				 $message="<html>
+				 <h3>Your Password".$nm." </h3></html>";
+                    $subject = $ps;
+                    $mail = new PHPMailer;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Port = 587;
+                    $mail->SMTPSecure = 'tls';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = $email;
+                    $mail->Password = $password;
+                    $mail->setFrom('from@example.com', 'password mail');
+                    $mail->addReplyTo('dontreply@gmail.com', 'auto generated mail');
+                    $mail->addAddress($to_id);
+                    $mail->Subject = $subject;
+                    $mail->msgHTML($message);
+                    if (!$mail->send()) {
+                       $error = "Mailer Error: " . $mail->ErrorInfo;
+                        ?><script>alert('<?php echo $error ?>');</script><?php
+                    } 
+                    else {
+                       echo '<script>alert("Your Password has sent to your mail!");</script>';
+					}
+
+				}
+
+*/
+				?>

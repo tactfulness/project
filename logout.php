@@ -12,6 +12,9 @@ unset($_SESSION['staff_ur']);
 setcookie ("rollno", "",time()-300, "/"); 
 setcookie ("user_id", "",time()-300, "/"); 
 setcookie ("staff_ur", "",time()-300, "/");
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
 header("Location: index.php");
 session_destroy();  
 session_unset();

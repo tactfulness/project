@@ -1,5 +1,9 @@
 <?php
 include'base_db_cofig.php';
+
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
 session_start();
 
 ?>

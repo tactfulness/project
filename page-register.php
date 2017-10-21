@@ -41,9 +41,12 @@ session_start();
 
     <!--Magic Checkbox [ OPTIONAL ]-->
     <link href="plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+     <!--Bootstrap Validator [ OPTIONAL ]-->
+    <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
 
 	<!--JAVASCRIPT-->
-    <!--=================================================-->
+    <!--=================================================-
+<script src="js/form-validation.js"></script>-->
 
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
     <link href="plugins/pace/pace.min.css" rel="stylesheet">
@@ -72,12 +75,50 @@ session_start();
     <script src="js/demo/bg-images.js"></script>
 
 
-
+<!--Bootstrap Validator [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
 
    
+<script>
+$(document).ready(function() {
+    $('#identicalForm').formValidation();
+});
+</script>
 
 </head>
+<!--
 
+<form id="identicalForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Retype password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="confirmPassword"
+                data-fv-identical="true"
+                data-fv-identical-field="password"
+                data-fv-identical-message="The password and its confirm are not the same" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#identicalForm').formValidation();
+});
+</script>
+
+-->
 <body>
 	<div id="container" class="cls-container">
 		
@@ -151,7 +192,10 @@ $query = "INSERT INTO `users`(`rollno`, `fname`, `lname`, `email`, `phone`, `pas
 else{
 ?>
 
-		            <form action="" method="post">
+		            <form action="" method="post" id="identicalForm" name="identicalForm" data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
 		                <div class="row">
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
@@ -179,7 +223,9 @@ else{
 		                    </div>
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
-		                            <input type="password" class="form-control" placeholder="Re-Type Password" name="rePassword">
+		                            <input type="password" class="form-control" placeholder="Re-Type Password" name="rePassword" data-fv-identical="true"
+                data-fv-identical-field="password"
+                data-fv-identical-message="The password and its confirm are not the same" />
 		                        </div>
 		                        <div class="form-group">
 		                            <input type="text" class="form-control" placeholder="Address" name="address">

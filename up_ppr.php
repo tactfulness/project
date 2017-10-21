@@ -17,7 +17,7 @@ $p_date=$_POST['p_date'];
  $file_loc = $_FILES['file']['tmp_name'];
  $file_size = $_FILES['file']['size'];
  $file_type = $_FILES['file']['type'];
- $folder="img/uploads/";
+ $folder="../img/uploads/";
  $rt=$folder.$file;
  $sd=$_COOKIE['rollno'];
 $zx=$_COOKIE['user_id'];
@@ -26,11 +26,7 @@ $zx=$_COOKIE['user_id'];
  
 $qure="INSERT INTO `paper_presentations` (`user_id`,`pp_title`, `clg_name`,  `certificate_path`,`p_date`)
  VALUES ( '$zx','$title ', '$cg_name', '$rt','$p_date');";
- /*
- $qry2="INSERT INTO `user_image_files` ( `user_id`, `file_name`,`file_path`, `file_size`, `file_type`) 
- VALUES ( (select u.user_id from users u where rollno='$sd'),'$file','$rt', '$file_size', '$file_type');";
-	INSERT INTO `user_image_files`(`uf_id`, `user_id`, `pp_id`, `file_name`, `file_path`, `file_size`, `file_type`)
-	*/
+
  $qry2="INSERT INTO `user_image_files` ( `user_id`, `file_name`,`file_path`, `file_size`, `file_type`) 
  VALUES ( (select u.user_id from users u where rollno='$sd'),'$file','$rt', '$file_size', '$file_type');"; //(select p.pp_id from paper_presentations p where user_id='$zx'),
  
