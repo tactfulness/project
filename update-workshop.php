@@ -32,14 +32,8 @@ include'base_db_cofig.php';
 
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">        
 
-
-        
-
-
-
-    
     <!--JAVASCRIPT-->
 
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
@@ -57,13 +51,16 @@ include'base_db_cofig.php';
 
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="js/nifty.min.js"></script>
-
-
     
     <!--Demo script [ DEMONSTRATION ]-->
     <script src="js/demo/nifty-demo.min.js"></script>
 
     
+<!--Bootstrap MDB style [ REQUIRED ]-->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+   <!--MDB-JS [ RECOMMENDED ]-->
+    <script src="js/mdb.min.js"></script>
 
 
 
@@ -120,11 +117,9 @@ include'base_db_cofig.php';
             <div id="content-container">
                 
                 <!--Page Title-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Update Workshop</h1>
                 </div>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End page title-->
 
 
@@ -139,16 +134,28 @@ include'base_db_cofig.php';
 					            <h2 class="panel-title">Update Your Workshop Details.</h2>
 					        </div>
 					        <div class="panel-body">
-                                <form action="upload_work.php" method="post" enctype="multipart/form-data">
+                                <form action="upload_pro.php" method="post" enctype="multipart/form-data">
+                                     <div class="form-inline-lg">
+                                    <label class="col-lg-3 control-label" for="w_cl_type" >Select Prize</label>
+                                        <select name="w_cl_type" class="mdb-select colorful-select">
+                                        <option value=""></option>
+                                        <option value="inside">Inside KEC</option>
+                                        <option value="ooutside">Outside KEC</option>    
+                                        </select>
+                                    </div><br>    
                                     <div class="form-inline-lg">
-                                        <input type="text" class="form-control"  placeholder="Name of Workshop" name="w_title" id="w_title">
+                                        <input type="text" class="form-control"  placeholder="Workshop Name" name="w_title" id="w_title">
                                     </div><br>                                    
                                    
                                     <div class="form-inline-lg">
-                                        <input type="text" class="form-control"  placeholder="College Name" name="clg_name" id="clg_name">
+                                        <input type="text" class="form-control"  placeholder="College Name" name="w_cl_name" id="w_cl_name">
                                     </div><br>
                                     <div class="form-inline-lg">
-                                        <input type="date" class="form-control"  placeholder="Presented Date" name="p_date" id="p_date">
+                                        <input type="text" class="form-control"  placeholder="College Place" name="w_cl_place" id="w_cl_place">
+                                    </div><br>
+                                  
+                                    <div class="form-inline-lg">
+                                        <input type="date" class="form-control"  placeholder="Attented Date" name="w_date" id="w_date">
                                     </div><br>
                                      <div class="form-inline-lg">
                                          <label for="file">Certificate</label>
@@ -158,8 +165,8 @@ include'base_db_cofig.php';
 
 
                                 </form>
-					        </div>
-					        </div>
+                            </div>
+                            </div>
 					    </div>
 					</div>
 					

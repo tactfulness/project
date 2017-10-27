@@ -1,5 +1,9 @@
 <?php
 include'base_db_cofig.php';
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -59,25 +63,17 @@ include'base_db_cofig.php';
 
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="js/nifty.min.js"></script>
-
-
-
-
-
-
-    <!--=================================================-->
     
     <!--Demo script [ DEMONSTRATION ]-->
     <script src="js/demo/nifty-demo.min.js"></script>
 
     
+    <!--Bootstrap MDB style [ REQUIRED ]-->
+    <link href="css/mdb.min.css" rel="stylesheet">
 
-
-
+   <!--MDB-JS [ RECOMMENDED ]-->
+    <script src="js/mdb.min.js"></script>
 </head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 <body>
     <div id="container" class="effect aside-float aside-bright mainnav-lg">
         
@@ -111,38 +107,35 @@ include'base_db_cofig.php';
                                 <i class="demo-pli-view-list"></i>
                             </a>
                         </li>
-                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                         <!--End Navigation toogle button-->
                      </ul>
                    
                 </div>
-                <!--================================-->
-                <!--End Navbar Dropdown-->
+               <!--End Navbar Dropdown-->
 
             </div>
         </header>
-        <!--===================================================-->
         <!--END NAVBAR-->
 
         <div class="boxed">
 
             <!--CONTENT CONTAINER-->
-            <!--===================================================-->
-            <div id="content-container">
+           <div id="content-container">
                 
                 <!--Page Title-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Update Project</h1>
                 </div>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End page title-->
         
 
                 <!--Page content-->
-                <!--===================================================-->
                 <div id="page-content">
-                    
+                    <?php
+					
+
+
+?>
 					<hr class="new-section-sm bord-no">
 					<div class="row">
 					    <div class="col-lg-6 col-lg-offset-3">
@@ -152,13 +145,33 @@ include'base_db_cofig.php';
 					        </div>
 					        <div class="panel-body">
                                 <form action="upload_pro.php" method="post" enctype="multipart/form-data">
-                                    <div class="form-inline-lg">
+                                     <div class="form-inline-lg">
+                                    <label class="col-lg-3 control-label" for="clg_type" >Select Prize</label>
+                                        <select name="clg_type" class="mdb-select colorful-select">
+                                        <option value=""></option>
+                                        <option value="inside">Inside KEC</option>
+                                        <option value="ooutside">Outside KEC</option>    
+                                        </select>
+                                    </div><br>    
+									<div class="form-inline-lg">
                                         <input type="text" class="form-control"  placeholder="Project Title" name="pro_title" id="pro_title">
                                     </div><br>                                    
                                    
                                     <div class="form-inline-lg">
-                                        <input type="text" class="form-control"  placeholder="College Name" name="cl_name" id="cl_name">
+                                        <input type="text" class="form-control"  placeholder="College Name" name="clg_name" id="clg_name">
                                     </div><br>
+									<div class="form-inline-lg">
+                                        <input type="text" class="form-control"  placeholder="College Place" name="clg_place" id="clg_place">
+                                    </div><br>
+									<div class="form-inline-lg">
+                                    <label class="col-lg-3 control-label" for="won_prize" >Select Prize</label>
+                                        <select name="won_prize" class="mdb-select colorful-select">
+                                        <option value=""></option>
+                                        <option value="First">First</option>
+                                        <option value="Second">Second</option>    
+                                        <option value="Third">Third</option>
+                                        </select>
+                                    </div><br> 
                                     <div class="form-inline-lg">
                                         <input type="date" class="form-control"  placeholder="Presented Date" name="p_date" id="p_date">
                                     </div><br>

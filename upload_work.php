@@ -18,7 +18,8 @@ $p_date=$_POST['p_date'];
  $folder="img/uploads/";
  $rt=$folder.$file;
  move_uploaded_file($file_loc,$rt);
-
+/*
+INSERT INTO `workshops`(`w_id`, `w_title`, `w_cl_type`, `w_cl_name`, `w_cl_place`, `w_cert_path`, `w_date`, `created_at`, `user_id`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9])*/
 
 $qure="INSERT INTO `workshops` (`w_title`, `w_cl_name`,  `w_cert_path`,`w_date`)
  VALUES ( '$title ', '$cg_name', '$rt','$p_date');";

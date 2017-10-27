@@ -2,6 +2,11 @@
 <?php
 include'base_db_cofig.php';
 
+if( $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

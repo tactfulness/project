@@ -1,7 +1,11 @@
 
 <?php
 include'base_db_cofig.php';
+if($_COOKIE['rollno']=='' && $_COOKIE['user_id']=='' && $_COOKIE['staff_ur']==""){
+header("Location: index.php");
+}
 session_start();
+
 
 ?>
 
@@ -47,6 +51,11 @@ session_start();
 
 
 
+<!--Bootstrap MDB style [ REQUIRED ]-->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+   <!--MDB-JS [ RECOMMENDED ]-->
+    <script src="js/mdb.min.js"></script>
 
 
     
@@ -161,19 +170,67 @@ session_start();
                     <h1 class="page-header text-overflow">Dashboard</h1>
                 </div>
                 <!--End page title-->
-
-                <!--Page content-->
-                <div id="page-content">
             <?php   
-                echo '<pre>' . print_r($_COOKIE, TRUE) . '</pre>';
-                //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+               //echo '<pre>' . print_r($_COOKIE, TRUE) . '</pre>';
+               $zx=$_COOKIE['user_id'];
+//$toatalCount=0;
+            $qry="select count(*) as ppts from paper_presentations where user_id='$zx'";
+            $qry_data = mysqli_query($con, $qry);
+            $approve_count = mysqli_fetch_array($qry_data);
+            $toatalCount = array_shift($approve_count);
+            //echo 'total paper presentations you\'ve done ',$toatalCount;
+
+            $qry1="select count(*) as pros from project_presentations where user_id='$zx'";
+            $qry_pro = mysqli_query($con, $qry1);
+            $approve_pro = mysqli_fetch_array($qry_pro);
+            $toatalPRO = array_shift($approve_pro);
+            //echo '<br>total project presentations you\'ve done ',$toatalPRO;
+            
+            $qry3="select count(*) as works from workshops where user_id='$zx'";
+            $qry_w = mysqli_query($con, $qry3);
+            $approve_w = mysqli_fetch_array($qry_w);
+            $toatalW = array_shift($approve_w);
+            //echo '<br>total project presentations you\'ve done ',$toatalW;
+            
+            $qry4="select count(*) as iv from industrial_visits where user_id='$zx'";
+            $qry_s = mysqli_query($con, $qry4);
+            $approve_s = mysqli_fetch_array($qry_s);
+            $toatalS = array_shift($approve_s);
+            //echo '<br>total sport you\'ve done ',$toatalS;
+
+            $qry5="select count(*) as sport from sports where user_id='$zx'";
+            $qry_iv = mysqli_query($con, $qry5);
+            $approve_iv = mysqli_fetch_array($qry_iv);
+            $toatalIV = array_shift($approve_iv);
+            //echo '<br>total sport you\'ve done ',$toatalIV;
             ?>
-					
-					
-                </div>
-                <!--End page content-->
 
-
+            <!--Page content-->
+            <div id="page-content">
+            
+                <p class="text-danger">Your Activities</p>
+                <table class="table table-striped ">
+                    <thead class="mdb-color green lighten-1">
+                        <tr >
+                          <th>Paper Presentation</th>
+                          <th>Project Presentation</th>
+                          <th>Workshops</th>
+                          <th>Industrial Visit</th>
+                          <th>Sports</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="table-active"><td><?php echo $toatalCount; ?></td>
+                          <td><? echo $toatalPRO; ?></td>
+                          <td><?php echo $toatalW; ?></td>
+                          <td><?php echo $toatalS; ?></td>
+                          <td><?php echo $toatalIV; ?></td>
+                        </tr>
+                        </tbody>
+                </table>
+                
+            </div>
+            <!--End page content-->
             </div>
             <!--END CONTENT CONTAINER-->
 
@@ -190,7 +247,6 @@ session_start();
         
 
         <!-- FOOTER -->
-        <!--===================================================-->
         <footer id="footer">
 
             <!-- Visible when footer positions are fixed -->

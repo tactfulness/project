@@ -1,6 +1,6 @@
    <?php
    
-//   include'base_db_cofig.php';
+   include'base_db_cofig.php';
   
 		//$con = mysqli_connect("localhost","id768632_ruler","Jack@#Ball","id768632_info");
 			//$ss=$_SESSION['rollno'];
@@ -128,6 +128,8 @@
 						                <ul class="collapse">
 						                    <li><a href="update-paper.php">Update Paper</a></li>
 											<li><a href="update-project.php">Update Project</a></li>
+											<li><a href="update-sport.php">Update Sports</a></li>
+											<li><a href="update-IV.php">Update Industrial Vist</a></li>
 											<li><a href="update-workshop.php">Update Workshop</a></li>
 						                </ul>
 						            </li>

@@ -79,6 +79,7 @@ include'base_db_cofig.php';
     <script src="js/demo/tables-datatables.js"></script>
 
 
+
 </head>
 <body>
     <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -130,8 +131,6 @@ include'base_db_cofig.php';
                 <!--Page Title-->
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Data Tables</h1>
-
-                    
                 </div>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End page title-->
@@ -142,8 +141,8 @@ include'base_db_cofig.php';
                 <!--Page content-->
                 <!--===================================================-->
                 <div id="page-content">
-                    
-					<!-- paper Data Tables -->
+                   
+                    <!-- paper Data Tables -->
 					<!--===================================================-->
                     <?php
 					echo'<div class="panel">
@@ -164,6 +163,7 @@ include'base_db_cofig.php';
 					            </thead>
 					            <tbody>';
                                 $ss=$_COOKIE['user_id'];
+
                                 $qra="SELECT `pp_id`, `user_id`, `pp_title`, `clg_type`, `clg_name`, `clg_place`, `certificate_path`, `ppr_prize`, `p_date`, `created_at` FROM `paper_presentations` where user_id='$ss'";
                                 $result = mysqli_query($con,$qra)or die('fetch error');
                                 //$qrys=mysqli_query($con,"
@@ -214,20 +214,24 @@ include'base_db_cofig.php';
 					                </tr>
 					            </thead>
 					            <tbody>';
-                                   
+                                   /*
                                 $qra="SELECT `pro_id`, `user_id`, `clg_type`, `pro_title`, `cl_name`, `cl_place`, `pro_prize`, `certificate_path`, `pro_date`, `create_at` FROM `project_presentations` where user_id='$ss'";
+                                 /*
+                                SELECT `pro_id`, `college type`, `Project title`, `college name`, `college place`, `prize`, `certificate_path`, `attented date`, `create_at`, `user_id` FROM `project_presentations` WHERE `user_id`
+                                */
+                                $qra=" SELECT `pro_id`, `college type`, `Project title`, `college name`, `college place`, `prize`, `certificate_path`, `attented date`, `create_at`, `user_id` FROM `project_presentations` WHERE `user_id`='$ss'";
                                 $result = mysqli_query($con,$qra)or die('fetch error');
                                 //$qrys=mysqli_query($con,"
                                 if($result){
                                 while($row = mysqli_fetch_array($result))
                                 {
                                     echo'<tr>';
-                                    echo'<td>'. $row['pro_title'].'</td>';
-                                    echo'<td>'. $row['cl_name'].'</td>';
-                                    echo'<td>'. $row['cl_place'].'</td>';
-                                    echo'<td>'. $row['pro_date'].'</td>';
+                                    echo'<td>'. $row['Project title'].'</td>';
+                                    echo'<td>'. $row['college name'].'</td>';
+                                    echo'<td>'. $row['college place'].'</td>';
+                                    echo'<td>'. $row['attented date'].'</td>';
                                     
-                                    echo'<td>'. $row['pro_prize'].'</td>';
+                                    echo'<td>'. $row['prize'].'</td>';
                                     echo'</tr>';
 
                                 }
@@ -243,9 +247,8 @@ include'base_db_cofig.php';
 					<!--===================================================-->
 					<!-- End project table -->
 					
-					
-					
 				
+
 					
                 </div>
                 <!--===================================================-->

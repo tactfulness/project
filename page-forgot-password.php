@@ -76,7 +76,7 @@ header("Location: index.php");
 		    <div class="cls-content-sm panel">
 		        <div class="panel-body">
 		        <?php
-		        	$em=$_POST['newmsg'];
+		        	/*$em=$_POST['newmsg'];
 		        	echo $em;
 		        	$query="select `rollno`, `fname`, `email`, `password` from users where email='$em'";
 		        	$result=mysqli_query($con,$query) or die(mysql_error());
@@ -119,7 +119,7 @@ header("Location: index.php");
 				}
 
 					//mail code end
-			}
+			}*/
 	      ?>
 		            <h1 class="h3">Forgot password</h1>
 		            <p class="pad-btm">Enter your email address to recover your password. </p>

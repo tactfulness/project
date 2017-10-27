@@ -103,7 +103,6 @@ session_start();
 
 
                 <!--Navbar Dropdown-->
-                <!--================================-->
                 <div class="navbar-content clearfix">
                     <ul class="nav navbar-top-links pull-left">
 
@@ -144,11 +143,12 @@ session_start();
                 <!--Page content-->
                 <!--===================================================-->
                 <div id="page-content">
-                    <?php
-                echo '<pre>' . print_r($_COOKIE, TRUE) . '</pre>';
-                    ?>
+                 
 					<hr class="new-section-sm bord-no">
 					<div class="row">
+					<?php   
+                        // echo '<pre>' . print_r($_COOKIE, TRUE) . '</pre>';
+                  ?>
 					    <div class="col-lg-6 col-lg-offset-3">
 					        <div class="panel panel-trans text-center">
 					        <div class="panel-heading">
@@ -157,13 +157,13 @@ session_start();
 					        <div class="panel-body">
                                 <form action="upload_ppr.php" method="post" enctype="multipart/form-data">
                                     <div class="form-inline-lg">
-                                    <label class="col-lg-3 control-label">College Type</label>
+                                    <label class="col-lg-3 control-label" for="clg_type" >Select Prize</label>
                                         <select name="clg_type" class="mdb-select colorful-select">
                                         <option value=""></option>
-                                        <option value="Inside kec">Inside KEC</option>
-                                        <option value="Outside kec">Outside KEC</option>    
+                                        <option value="inside">Inside KEC</option>
+                                        <option value="outside">Outside KEC</option>    
                                         </select>
-                                    </div><br>                                    
+                                    </div><br>                                
                                     <div class="form-inline-lg">
                                         <input type="text" class="form-control"  placeholder="Paper Title" name="paper_title" id="paper_title">
                                     </div><br>                                   
@@ -189,7 +189,7 @@ session_start();
                                     </div><br>
                                      <div class="form-inline-lg">
                                          <label for="file">Certificate</label>
-                                        <input type="file" class="form-control"  name="file" id="file">
+                                        <input type="file" class="form-control"  name="files" id="files">
                                     </div><br>
                                     <button class="btn btn-primary btn-lg btn-block" type="submit" name="upload" id="upload">UPDATE</button>
 

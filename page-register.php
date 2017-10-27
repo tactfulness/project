@@ -18,66 +18,39 @@ session_start();
 
     <!--Open Sans Font [ OPTIONAL ]-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
-
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!--Bootstrap MDB style [ REQUIRED ]-->
-    <link href="css/mdb.min.css" rel="stylesheet">
-
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="css/nifty.min.css" rel="stylesheet">
-
-
     <!--Nifty Premium Icon [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo-icons.min.css" rel="stylesheet">
-
-
-        
     <!--Demo [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
-
-
     <!--Magic Checkbox [ OPTIONAL ]-->
     <link href="plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
      <!--Bootstrap Validator [ OPTIONAL ]-->
     <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
-
 	<!--JAVASCRIPT-->
-    <!--=================================================-
-<script src="js/form-validation.js"></script>-->
-
     <!--Pace - Page Load Progress Par [OPTIONAL]-->
     <link href="plugins/pace/pace.min.css" rel="stylesheet">
     <script src="plugins/pace/pace.min.js"></script>
-
-
     <!--jQuery [ REQUIRED ]-->
     <script src="js/jquery.min.js"></script>
-
-
     <!--BootstrapJS [ RECOMMENDED ]-->
     <script src="js/bootstrap.min.js"></script>
-
-    <!--MDB-JS [ RECOMMENDED ]-->
-    <script src="js/mdb.min.js"></script>
-
     <!--NiftyJS [ RECOMMENDED ]-->
     <script src="js/nifty.min.js"></script>
-
-
     <!--Form Wizard [ SAMPLE ]-->
     <script src="js/demo/form-wizard.js"></script>
-
- 
     <!--Background Image [ DEMONSTRATION ]-->
     <script src="js/demo/bg-images.js"></script>
-
-
-<!--Bootstrap Validator [ OPTIONAL ]-->
+	<!--Bootstrap Validator [ OPTIONAL ]-->
     <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
 
+    <!--Bootstrap MDB style [ REQUIRED ]->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!--MDB-JS [ RECOMMENDED ]->
+    <script src="js/mdb.min.js"></script>-->
    
 <script>
 $(document).ready(function() {
@@ -86,50 +59,15 @@ $(document).ready(function() {
 </script>
 
 </head>
-<!--
-
-<form id="identicalForm" class="form-horizontal"
-    data-fv-framework="bootstrap"
-    data-fv-icon-valid="glyphicon glyphicon-ok"
-    data-fv-icon-invalid="glyphicon glyphicon-remove"
-    data-fv-icon-validating="glyphicon glyphicon-refresh">
-
-    <div class="form-group">
-        <label class="col-xs-3 control-label">Password</label>
-        <div class="col-xs-5">
-            <input type="password" class="form-control" name="password" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-xs-3 control-label">Retype password</label>
-        <div class="col-xs-5">
-            <input type="password" class="form-control" name="confirmPassword"
-                data-fv-identical="true"
-                data-fv-identical-field="password"
-                data-fv-identical-message="The password and its confirm are not the same" />
-        </div>
-    </div>
-</form>
-
-<script>
-$(document).ready(function() {
-    $('#identicalForm').formValidation();
-});
-</script>
-
--->
 <body>
 	<div id="container" class="cls-container">
 		
 		
 		<!-- BACKGROUND IMAGE -->
-		<!--===================================================-->
 		<div id="bg-overlay"></div>
 		
 		
 		<!-- REGISTRATION FORM -->
-		<!--===================================================-->
 		<div class="cls-content">
 		    <div class="cls-content-lg panel">
 		        <div class="panel-body">
@@ -199,48 +137,48 @@ else{
 		                <div class="row">
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="Rollno" name="rollNo">
+		                            <input type="text" class="form-control" placeholder="Rollno" name="rollNo" required="required">
 		                        </div>
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="First Name" name="firstName">
-		                        </div>
-		                    </div>
-		                    <div class="col-sm-6">
-		                        <div class="form-group">
-		                            <input type="email" class="form-control" placeholder="E-Mail" name="txt_email">
-		                        </div>
-		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+		                            <input type="text" class="form-control" placeholder="First Name" name="firstName" required="required">
 		                        </div>
 		                    </div>
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
-		                            <input type="password" class="form-control" placeholder="Password" name="password">
+		                            <input type="email" class="form-control" placeholder="E-Mail" name="txt_email" required="required">
 		                        </div>
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="Contact Number" name="phoneNo">
+		                            <input type="text" class="form-control" placeholder="Last Name" name="lastName" required="required">
 		                        </div>
 		                    </div>
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
-		                            <input type="password" class="form-control" placeholder="Re-Type Password" name="rePassword" data-fv-identical="true"
+		                            <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+		                        </div>
+		                        <div class="form-group">
+		                            <input type="text" required="required" class="form-control" placeholder="Contact Number" name="phoneNo">
+		                        </div>
+		                    </div>
+		                    <div class="col-sm-6">
+		                        <div class="form-group">
+		                            <input type="password" class="form-control" required="required" placeholder="Re-Type Password" name="rePassword" data-fv-identical="true"
                 data-fv-identical-field="password"
                 data-fv-identical-message="The password and its confirm are not the same" />
 		                        </div>
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="Address" name="address">
+		                            <input type="text" class="form-control" placeholder="Address" required="required" name="address">
 		                        </div>
 		                    </div>
 							<div class="col-sm-6">
 		                        <div class="form-group">
-		                        <select class=" mdb-select colorful-select dropdown-danger" name="programme">
+		                        <select class=" mdb-select colorful-select dropdown-danger"  required="required"name="programme">
 					            	<option value="">Select your Programme</option>
 					            	<option value="BE">BE</option>
 									<option value="ME">ME</option>
 					            </select>
 		                        </div>
 		                        <div class="form-group">
-		                        <select class="mdb-select colorful-select dropdown-primary" name="txt_sec">
+		                        <select class="mdb-select colorful-select dropdown-primary" name="txt_sec" required="required">
 					                		<option value="">Select your Section</option>
 					                		<option value="A">A</option>
 					                		<option value="B">B</option>
@@ -251,7 +189,7 @@ else{
 		                    </div>
 		                    <div class="col-sm-6">
 		                        <div class="form-group">
-		                            <select class="mdb-select colorful-select dropdown-danger" name="course">
+		                            <select required="required" class="mdb-select colorful-select dropdown-danger" name="course">
 					                    	<option value="">Select your Course</option>
 					                    	<option value="CSE">CSE</option>
 					                    	<option value="MECH">MECH</option>
@@ -261,7 +199,7 @@ else{
 					            </select>
 		                        </div>
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" placeholder="Advisor Name" name="advisor">
+		                            <input type="text" required="required" class="form-control" placeholder="Advisor Name" name="advisor">
 		                        </div>
 		                    </div>
 		                </div>
@@ -282,12 +220,7 @@ else{
 		        </div>
 		    </div>
 		</div>
-		<!--===================================================-->
-		
-		
-		
 		<!-- BACKGROUND CHANGER -->
-		<!--===================================================-->
 		<div class="demo-bg">
 		    <div id="demo-bg-list">
 		        <div class="demo-loading"><i class="psi-repeat-2"></i></div>
@@ -298,15 +231,7 @@ else{
 		        
 		    </div>
 		</div>
-		<!--===================================================-->
-		
-		
 	</div>
-	<!--===================================================-->
 	<!-- END OF CONTAINER -->
-
-
-		</body>
-
-
+</body>
 </html>
